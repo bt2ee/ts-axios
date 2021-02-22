@@ -27,32 +27,50 @@ app.use(bodyParser.urlencoded({
 
 const router = express.Router()
 
-router.get('/simple/get', function (req, res) {
-  res.json({
-    msg: 'hello world'
-  })
+// router.get('/simple/get', function(req, res) {
+//   res.json({
+//     msg: 'hello world'
+//   })
+// })
+
+// router.get('/base/get', function(req, res) {
+//   console.log(1234)
+//   res.json(res)
+// })
+
+
+router.post('/config/post', function(req, res) {
+  res.status = 200
+  res.send('hello123')
 })
 
-router.get('/base/get', function (req, res) {
-  res.json(req.query)
+router.get('/config/get', function(req, res) {
+  res.status = 200
+  res.send('hello123')
 })
 
-router.post('/base/post', function (req, res) {
-  res.json(req.body)
-})
 
-router.post('/base/buffer', function (req, res) {
-  let msg = []
-  req.on('data', (chunk) => {
-    if (chunk) {
-      msg.push(chunk)
-    }
-  })
-  req.on('end', () => {
-    let buf = Buffer.concat(msg)
-    res.json(buf.toJSON())
-  })
-})
+// router.get('/interceptor/get', function(req, res) {
+//   res.status = 200
+//   res.send('hello')
+// })
+
+// router.post('/base/post', function(req, res) {
+//   res.json(req.body)
+// })
+
+// router.post('/base/buffer', function(req, res) {
+//   let msg = []
+//   req.on('data', (chunk) => {
+//     if (chunk) {
+//       msg.push(chunk)
+//     }
+//   })
+//   req.on('end', () => {
+//     let buf = Buffer.concat(msg)
+//     res.json(buf.toJSON())
+//   })
+// })
 
 app.use(router)
 

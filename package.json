@@ -122,7 +122,9 @@
     "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
+    "@types/qs": "^6.9.5",
     "express": "^4.17.1",
+    "qs": "^6.9.6",
     "ts-loader": "^8.0.17",
     "tslint-loader": "^3.5.4"
   }
